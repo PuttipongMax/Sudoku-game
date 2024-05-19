@@ -1,4 +1,5 @@
 package sudoku.userinterface;
+import sudoku.problemdomain.SudokuGame;
 
 public interface IUserInterfaceContract {
  interface EventListener {
