@@ -3,10 +3,13 @@ package sudoku.userinterface;
 import java.util.HashMap;
 
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import sudoku.problemdomain.SudokuGame;
+import java.awt.Font;
 
 public class UserInterfaceImpl implements IUserInterfaceContract.View,
  EventHandler<KeyEvent> {
@@ -100,11 +103,50 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
         int y = yOrigin + yIndex * xAndYDelta;
 
         SudokuTextField tile = new SudokuTextField(xIndex, yIndex);
+
+        styleSudokuTile(tile, x, y);
+
+        tile.setOnKeyPressed(this);
+
+        textFieldCoordinates.put(new Coordinates(xIndex, yIndex), tile);
+
+        root.getChildren().add(tile);
       }
     }
   }
 
+  private void styleSudokuTile(SudokuTextField tile, double x, double y){
+    Font numberFont = new Font(32);
+
+    tile.setFont(numberFont);
+    tile.setAlignment(Pos.CENTER);
+
+    tile.setLayoutX(x);
+    tile.setLayoutY(y);
+    tile.setPrefHeight(64);
+    tile.setPrefWidth(64);
+
+    tile.setBackground(Background.EMPTY);
+  }
+
   private void drawSudokuBoard(Group root){
+    Rectangle boardBackground = new Rectangle();
+    boardBackground.setX(BOARD_PADDING);
+    boardBackground.setY(BOARD_PADDING);
+
+    boardBackground.setWidth(BOARD_X_AND_Y);
+    boardBackground.setHeight(BOARD_X_AND_Y);
+
+    boardBackground.setFill(BOARD_BACKGROUND_COLOR);
+
+    root.getChildren().addAll(boardBackground);
+  }
+
+  private void drawTitle(Group root){
+    Text title = new Text(235, 690, SUDOKU);
+  }
+
+  private void drawBackground(Group root){
 
   }
 
