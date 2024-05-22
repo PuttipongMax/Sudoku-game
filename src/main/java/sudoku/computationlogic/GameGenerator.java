@@ -1,12 +1,12 @@
 package sudoku.computationlogic;
 
+import static sudoku.problemdomain.SudokuGame.GRID_BOUNDARY;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 import sudoku.problemdomain.Coordinates;
-
-import static sudoku.problemdomain.SudokuGame.GRID_BOUNDARY;
 
 public class GameGenerator {
  public static int[][] getNewGameGrid(){

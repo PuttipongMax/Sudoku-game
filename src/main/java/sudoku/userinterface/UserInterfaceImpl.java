@@ -17,7 +17,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import sudoku.constants.GameState;
 import sudoku.problemdomain.Coordinates;
 import sudoku.problemdomain.SudokuGame;
@@ -61,7 +60,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
   private void drawGridLines(Group root){
    int xAndY = 114;
    int index = 0;
-   while(index < 0){
+   while(index < 8){
     int thickness;
     if(index == 2 || index == 5){
      thickness = 3;
