@@ -1,0 +1,6 @@
+sudoku\userinterface\SudokuTextField.class
+sudoku\problemdomain\Coordinates.class
+sudoku\userinterface\IUserInterfaceContract$EventListener.class
+sudoku\userinterface\IUserInterfaceContract$View.class
+sudoku\userinterface\UserInterfaceImpl.class
+sudoku\userinterface\IUserInterfaceContract.class
