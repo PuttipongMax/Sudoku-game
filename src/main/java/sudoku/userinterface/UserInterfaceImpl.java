@@ -13,13 +13,14 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import sudoku.constants.GameState;
 import sudoku.problemdomain.Coordinates;
 import sudoku.problemdomain.SudokuGame;
-
-import java.awt.Font;
 
 public class UserInterfaceImpl implements IUserInterfaceContract.View,
  EventHandler<KeyEvent> {
@@ -194,7 +195,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
 
         if(game.getGameState() == GameState.NEW){
           if(value.equals("")){
-            title.setStyle("-fx-opacity: 0");
+            tile.setStyle("-fx-opacity: 0");
           }
           else{
             tile.setStyle(".-fx=opacity: 0.8 ");
@@ -207,7 +208,7 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
 
   @Override
   public void showDialog(String message){
-    Alert dialog = new Alert(Alert.AlertType.CONFIRMATION, message, ButtonType.Ok);
+    Alert dialog = new Alert(Alert.AlertType.CONFIRMATION, message, ButtonType.OK);
     dialog.showAndWait();
 
     if(dialog.getResult() == ButtonType.OK) listener.onDialogClick();
@@ -228,6 +229,11 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
       }
     }
     event.consume();
+  }
+
+  @Override
+  public void showError(String message){
+
   }
 
   private void handleInput(int value, Object source){
